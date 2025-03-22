@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="fever-test-e2e" tests="4" time="6.127">
+  <testsuite name="Get events OK" id="ff618f03-802d-49a5-8bac-4245fa5a988b" timestamp="2025-03-22T12:51:16.008Z" tests="1" failures="0" errors="0" time="6.052">
+    <testcase name="Expected 200 response" time="6.052" classname="GetEventsOk"/>
+  </testsuite>
+  <testsuite name="Get events KO - Bad request - inexistent date" id="b926d9fb-5db7-400a-8ef2-b69d222a8677" timestamp="2025-03-22T12:51:16.008Z" tests="1" failures="0" errors="0" time="0.012">
+    <testcase name="Expected 400 response" time="0.012" classname="GetEventsKoBadRequestInexistentDate"/>
+  </testsuite>
+  <testsuite name="Get events KO - Bad request - endDate &lt; startDate" id="e67d92ac-426b-4003-b25d-1ee17905201f" timestamp="2025-03-22T12:51:16.008Z" tests="1" failures="0" errors="0" time="0.012">
+    <testcase name="Expected 400 response" time="0.012" classname="GetEventsKoBadRequestEndDateLtStartDate"/>
+  </testsuite>
+  <testsuite name="Get events KO - Bad request - malformed" id="24346f20-c738-40d1-a183-d31aee10ef98" timestamp="2025-03-22T12:51:16.008Z" tests="1" failures="0" errors="0" time="0.051">
+    <testcase name="Expected 400 response" time="0.051" classname="GetEventsKoBadRequestMalformed"/>
+  </testsuite>
+</testsuites>

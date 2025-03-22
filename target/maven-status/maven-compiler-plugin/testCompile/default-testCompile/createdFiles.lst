@@ -1,0 +1,5 @@
+com\fever\event\test\fever_demo_miguelcabezas\infraestructure\adapters\out\ExternalEventProviderTest.class
+com\fever\event\test\fever_demo_miguelcabezas\infraestructure\exceptions\ProcessResponseExceptionTest.class
+com\fever\event\test\fever_demo_miguelcabezas\application\EventServiceTest.class
+com\fever\event\test\fever_demo_miguelcabezas\infraestructure\exceptions\ConnectionExceptionTest.class
+com\fever\event\test\fever_demo_miguelcabezas\infraestructure\adapters\in\EventControllerTest.class

@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/com/fever/event/test/fever_demo_miguelcabezas/application/dto/EventList.java
+src/main/java/com/fever/event/test/fever_demo_miguelcabezas/application/dto/EventSummary.java
+src/main/java/com/fever/event/test/fever_demo_miguelcabezas/infraestructure/adapters/in/ApiUtil.java
+src/main/java/com/fever/event/test/fever_demo_miguelcabezas/infraestructure/adapters/in/SearchApi.java

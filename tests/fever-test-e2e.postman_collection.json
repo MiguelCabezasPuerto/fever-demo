@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "09af55a3-f051-4fc1-a9c0-d2c36203ae77",
+		"name": "fever-test-e2e",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21724138"
+	},
+	"item": [
+		{
+			"name": "Get events OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expected 200 response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search?starts_at=2021-02-01&ends_at=2021-09-10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "starts_at",
+							"value": "2021-02-01"
+						},
+						{
+							"key": "ends_at",
+							"value": "2021-09-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get events KO - Bad request - inexistent date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expected 400 response\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search?starts_at=2022-02-01&ends_at=2021-09-10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "starts_at",
+							"value": "2022-02-01"
+						},
+						{
+							"key": "ends_at",
+							"value": "2021-09-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get events KO - Bad request - endDate < startDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expected 400 response\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search?starts_at=2021-10-01&ends_at=2021-09-10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "starts_at",
+							"value": "2021-10-01"
+						},
+						{
+							"key": "ends_at",
+							"value": "2021-09-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get events KO - Bad request - malformed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expected 400 response\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search?starts_at=2021-10-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "starts_at",
+							"value": "2021-10-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  title: Event API
+  description: List events in a time period API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/event
+    description: Localhost server
+paths:
+  /search:
+    get:
+      summary: List events avalailable within a time period
+      operationId: searchEvents
+      parameters:
+        - name: starts_at
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: ends_at
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Available events list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventList'
+components:
+  schemas:
+    EventList:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSummary'
+      required:
+        - events
+    EventSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the plan
+        title:
+          type: string
+          description: Title of the plan
+        start_date:
+          type: string
+          format: date
+          description: Date when the event starts in local time
+        start_time:
+          type: string
+          format: time
+          nullable: true
+          example: "22:38:19"
+          description: Time when the event starts in local time
+        end_date:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the event ends in local time
+        end_time:
+          type: string
+          format: time
+          nullable: true
+          example: "14:45:15"
+          description: Time when the event ends in local time
+        min_price:
+          type: number
+          nullable: true
+          description: Min price from all the available tickets
+        max_price:
+          type: number
+          nullable: true
+          description: Max price from all the available tickets
+      required:
+        - id
+        - title
+        - start_date
+        - start_time
+        - end_date
+        - end_time
+        - min_price
+        - max_price
